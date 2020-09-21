@@ -1,17 +1,14 @@
 import React from 'react'
-import {View, StyleSheet, Text, Image, Dimensions, ScrollView, TouchableOpacity} from 'react-native'
-
+import {View, StyleSheet, Text, Image, ScrollView, TouchableOpacity} from 'react-native'
 export const GamesItem = ({gameItems, search,openPdfRule}) => {
-
-    return( 
+    return(
         <View style={styles.container}>
-
                 <View style={styles.wrapper}>
-
                     <View style={styles.gameList}>
                     <ScrollView vertical showsVerticalScrollIndicator={false}>
 
                         {gameItems.map(item => {
+                            // console.log(item.img);
                             if(search.length !== 0){
                                 if(item.title.startsWith(search)){
                                     <TouchableOpacity 
@@ -21,7 +18,7 @@ export const GamesItem = ({gameItems, search,openPdfRule}) => {
 
                                     >
                                         <Image 
-                                            source={item.image}
+                                            source={{uri: item.img}}
                                             style={styles.gameImg}
                                         />
                                         <Text style={styles.title}>{item.title}</Text>
@@ -49,7 +46,7 @@ export const GamesItem = ({gameItems, search,openPdfRule}) => {
                                     onPress={() => openPdfRule(item)}
                                 >
                                     <Image 
-                                        source={item.image}
+                                        source={{uri: item.img}}
                                         style={styles.gameImg}
                                     />
                                     <Text style={styles.title}>{item.title}</Text>

@@ -19,7 +19,7 @@ function MainNavigation ({navigation}){
                 name='Home' 
                 component={MainScreen}
                 options={{
-                    title: 'Borad Games Rules'
+                    title: 'Board Game Rules'
                 }}
                 />
             <HomeScreen.Screen 
