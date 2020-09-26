@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react'
-import {View, StyleSheet,ActivityIndicator} from "react-native"
+import {View, StyleSheet} from 'react-native'
 import axios from 'react-native-axios'
 import {SearchBar} from 'react-native-elements'
 import {GamesItem} from '../Components/GamesItem'
@@ -13,8 +13,8 @@ export const MainScreen = ({navigation}) => {
       .then(data => setGameData(data.data))
       .catch(err => console.log(err))
   }, [])
-const openPdfRule = res =>{
-  navigation.navigate('RuleItemDetail', {ruleData: res})
+const openGameInfo = res =>{
+  navigation.navigate('GameInfo', {gameInfoData: res})
 }
 //search
   const [search, setSearch] = useState('');
@@ -39,12 +39,11 @@ const openPdfRule = res =>{
       <GamesItem 
         gameItems={gameItems} 
         search={search}
-        openPdfRule={openPdfRule}
+        openGameInfo={openGameInfo}
       />
     </View>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
